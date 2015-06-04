@@ -15,52 +15,49 @@ Usage example
 -------------
 
 ```js
-	APNG.ifNeeded(function() {
-        for (var i = 0; i < document.images.length; i++) {
-            var img = document.images[i];
-            if (/\.png$/i.test(img.src)) {
-
-            	var apng=APNG.animateImage(img);
-       
-		    apng.done(function(ani){
-		        // listen playing,you can get current frame
-		        ani.playing=function(t){
-		            console.log(t)
-		            if(t==20){
-		                ani.stop();
-		            }
-		        }
-		        $("stop").addEventListener("click",function(){
-		            // stop apng
-		            ani.stop().done(function(){
-		                console.log("stop")
-		            });
-		        })
-		        $("play").addEventListener("click",function(){
-		            // play apng
-		            ani.play().done(function(){
-		                console.log("play")
-		            });
-		        });
-		        $("goto").addEventListener("click",function(){
-		            var val=$("input_goto").value;
-		            // goto the frame
-		            ani.goto(parseInt(val)).done(function(){
-		                console.log("goto")
-		            });
-		        });
-		        $("playto").addEventListener("click",function(){
-		            var val=$("input_playto").value;
-		            // playto the frame
-		            ani.playto(parseInt(val)).done(function(){
-		                console.log(ani.nowFrame)
-		            });
-		        });
-
-		    })
-		 }
-	     }
-    });
+APNG.ifNeeded(function() {
+	for (var i = 0; i < document.images.length; i++) {
+		var img = document.images[i];
+		if (/\.png$/i.test(img.src)) {
+			var apng=APNG.animateImage(img);
+			apng.done(function(ani){
+				// listen playing,you can get current frame
+				ani.playing=function(t){
+				    console.log(t)
+				    if(t==20){
+				        ani.stop();
+				    }
+				}
+				$("stop").addEventListener("click",function(){
+				    // stop apng
+				    ani.stop().done(function(){
+				        console.log("stop")
+				    });
+				})
+				$("play").addEventListener("click",function(){
+				    // play apng
+				    ani.play().done(function(){
+				        console.log("play")
+				    });
+				});
+				$("goto").addEventListener("click",function(){
+				    var val=$("input_goto").value;
+				    // goto the frame
+				    ani.goto(parseInt(val)).done(function(){
+				        console.log("goto")
+				    });
+				});
+				$("playto").addEventListener("click",function(){
+				    var val=$("input_playto").value;
+				    // playto the frame
+				    ani.playto(parseInt(val)).done(function(){
+				        console.log(ani.nowFrame)
+				    });
+				});
+			})
+		}
+	}
+});
 ```
 
 ---------------
