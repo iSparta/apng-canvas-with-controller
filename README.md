@@ -13,12 +13,14 @@ API
 
 Usage example
 -------------
+
+```js
 	APNG.ifNeeded(function() {
         for (var i = 0; i < document.images.length; i++) {
             var img = document.images[i];
-            if (/\.png$/i.test(img.src)) 
+            if (/\.png$/i.test(img.src)) {
 
-            var apng=APNG.animateImage(img);
+            	var apng=APNG.animateImage(img);
        
 		    apng.done(function(ani){
 		        // listen playing,you can get current frame
@@ -56,9 +58,10 @@ Usage example
 		        });
 
 		    })
+		 }
 	     }
     });
-
+```
 
 ---------------
 
